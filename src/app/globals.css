@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --first-color: hsl(18, 95%, 55%);
+  --second-color: hsl(42, 98%, 52%);
+  --first-gradient: linear-gradient(
+    90deg,
+    hsl(18, 95%, 55%),
+    hsl(18, 98%, 64%)
+  );
+  --title-color: hsl(255, 12%, 12%);
+  --text-color: hsl(225, 12%, 24%);
+  --text-color-light: hsl(255, 4%, 70%);
+  --body-color: hsl(0, 0%, 100%);
+  --container-color: hsl(0, 0%, 100%);
+  --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(255, 20%, 10%);
+  --gray-border: hsl(255, 6%, 90%);
+  --black-border: hsl(255, 10%, 20%);
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    @apply text-[15px] bg-white text-gray-700;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-gray-900 font-semibold;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-24;
+  }
+}
+
+/* Custom classes that match the original CSS */
+.button {
+  @apply inline-flex bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold px-8 py-4 hover:shadow-lg hover:shadow-orange-500/30 transition-shadow;
+}
+
+.button__link {
+  @apply flex items-center gap-1 text-orange-500 font-semibold transition-all;
+}
+
+.button__link:hover i {
+  @apply translate-x-1 transition-transform;
+}
+
+/* For active links in navigation */
+.active-link {
+  @apply text-orange-500;
+}
