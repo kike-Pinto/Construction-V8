@@ -9,6 +9,7 @@ import About from '../components/sections/About'
 import Services from '../components/sections/Services'
 import Projects from '../components/sections/Projects'
 import ContactSection from '@/components/sections/Contact'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -25,11 +26,11 @@ export default function Home() {
           onClose={() => setMobileMenuOpen(false)}
         />
         <Hero />
-        {/* Add other sections here */}
         <About />
         <Services />
         <Projects />
         <ContactSection />
+        <ScrollToTopButton />
       </div>
     </main>
   )
