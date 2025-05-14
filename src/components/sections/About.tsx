@@ -133,7 +133,7 @@ export default function AboutUs() {
   ]
 
   return (
-    <div className='w-full bg-white mt-20'>
+    <div className='w-full bg-white mt-20' id='about'>
       {/* Layout para pantallas grandes (>=1024px) */}
       <div
         className={`hidden lg:flex max-w-7xl container mx-auto px-10 sm:px-16 lg:px-20 xl:px-20 py-16 relative`}
@@ -204,7 +204,7 @@ export default function AboutUs() {
 
           {/* Botón CTA */}
           <div>
-            <button className='bg-orange-500 text-white px-8 py-3 font-medium hover:bg-orange-600 transition duration-300'>
+            <button className='bg-gradient-to-r from-orange-500 to-orange-400 hover:shadow-orange-500/30 hover:shadow-lg transition-all duration-300  text-white px-8 py-4 font-medium'>
               View Projects
             </button>
           </div>
@@ -248,7 +248,7 @@ export default function AboutUs() {
 
           {/* Botón CTA */}
           <div className='mb-10'>
-            <button className='bg-orange-500 text-white w-full py-3 text-lg font-medium hover:bg-orange-600 transition duration-300'>
+            <button className='bg-gradient-to-r from-orange-500 to-orange-400 hover:shadow-orange-500/30 hover:shadow-lg transition-all duration-300 text-white w-full py-3 text-lg font-medium '>
               View Projects
             </button>
           </div>

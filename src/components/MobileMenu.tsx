@@ -64,59 +64,60 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <ul className='flex flex-col gap-16 mt-16'>
           <li>
             <Link
-              href='/'
+              href='#home'
+              scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
               className={`font-semibold ${
-                isActive('/')
+                isActive('/home')
                   ? 'text-orange-500'
                   : 'text-gray-400 hover:text-orange-500'
               }`}
-              onClick={onClose}
             >
               Home
             </Link>
           </li>
           <li>
             <Link
-              href='/about'
+              href='#about'
+              scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
               className={`font-semibold ${
                 isActive('/about')
                   ? 'text-orange-500'
                   : 'text-gray-400 hover:text-orange-500'
               }`}
-              onClick={onClose}
             >
               About Us
             </Link>
           </li>
           <li>
             <Link
-              href='/services'
+              href='#services'
+              scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
               className={`font-semibold ${
                 isActive('/services')
                   ? 'text-orange-500'
                   : 'text-gray-400 hover:text-orange-500'
               }`}
-              onClick={onClose}
             >
               Services
             </Link>
           </li>
           <li>
             <Link
-              href='/projects'
+              href='#projects'
+              scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
               className={`font-semibold ${
                 isActive('/projects')
                   ? 'text-orange-500'
                   : 'text-gray-400 hover:text-orange-500'
               }`}
-              onClick={onClose}
             >
               Projects
             </Link>
           </li>
           <li>
             <Link
-              href='/contact'
+              href='#contact'
+              scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
               className='inline-flex bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold px-8 py-4'
               onClick={onClose}
             >

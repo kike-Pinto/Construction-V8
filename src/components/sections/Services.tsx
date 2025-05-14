@@ -82,7 +82,7 @@ const ServicesComponent = () => {
   }
 
   return (
-    <section className='relative py-16 '>
+    <section className='relative py-16' id='services'>
       {/* Background with two colors */}
       <div className='absolute inset-0 w-full h-full bg-white'>
         <div className='absolute bottom-0 left-0 right-0 h-1/3 bg-[#141423]'></div>
@@ -121,7 +121,7 @@ const ServicesComponent = () => {
 
             <a
               href='#contact'
-              className='bg-orange-500 text-white px-14 py-3 inline-block font-medium hover:bg-orange-600 transition-colors'
+              className='bg-gradient-to-r from-orange-500 to-orange-400 hover:shadow-orange-500/30 hover:shadow-lg transition-all duration-300 text-white px-14 py-3 inline-block font-medium '
             >
               Contact
             </a>

@@ -29,7 +29,7 @@ export default function LatestProjects() {
   ]
 
   return (
-    <div className='bg-[#141423] text-white py-20 px-4'>
+    <div className='bg-[#141423] text-white py-20 px-4' id='projects'>
       <div className='container mx-auto px-10 sm:px-16 lg:px-20 xl:px-20'>
         <div className='w-full text-left lg:text-center mb-10 lg:mb-20 font-sans'>
           <span className='text-orange-500 font-bold mb-2 block'>

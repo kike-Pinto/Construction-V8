@@ -46,7 +46,7 @@ const Header = () => {
         {/* <div className=''> */}
         <nav className='container mx-auto px-10 sm:px-16 lg:px-20 xl:px-20 relative mt-2 flex justify-between items-center'>
           <Link href='/' className='flex items-center gap-2'>
-            <i className='text-orange-500 text-2xl'>
+            <i className='text-orange-500 text-2xl hover:shadow-orange-500/30 hover:shadow-lg transition-all duration-300'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-7 w-7'
@@ -76,9 +76,10 @@ const Header = () => {
             <ul className='flex gap-8 items-center text-normal space-x-2 font-sans'>
               <li>
                 <Link
-                  href='/'
+                  href='#home'
+                  scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
                   className={`font-semibold ${
-                    isActive('/')
+                    isActive('/about')
                       ? 'text-orange-500'
                       : 'text-gray-400 hover:text-orange-500'
                   }`}
@@ -88,7 +89,8 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  href='/about'
+                  href='#about'
+                  scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
                   className={`font-semibold ${
                     isActive('/about')
                       ? 'text-orange-500'
@@ -100,7 +102,8 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  href='/services'
+                  href='#services'
+                  scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
                   className={`font-semibold ${
                     isActive('/services')
                       ? 'text-orange-500'
@@ -112,7 +115,8 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  href='/projects'
+                  href='#projects'
+                  scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
                   className={`font-semibold ${
                     isActive('/projects')
                       ? 'text-orange-500'
@@ -124,7 +128,8 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  href='/contact'
+                  href='#contact'
+                  scroll={true} // Habilita scroll suave (Next.js 13+ lo hace automáticamente)
                   className='inline-flex bg-gradient-to-r from-orange-500 to-orange-400 text-white font-semibold px-8 py-4 hover:shadow-lg hover:shadow-orange-500/30 transition-shadow'
                 >
                   Contact Us

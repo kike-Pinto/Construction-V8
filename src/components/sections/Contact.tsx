@@ -5,7 +5,10 @@ export default function ContactSection() {
   const [selectedChat, setSelectedChat] = useState(null)
 
   return (
-    <div className='w-full container mx-auto px-10 sm:px-16 lg:px-20 xl:px-20 py-20 font-sans'>
+    <div
+      className='w-full container mx-auto px-10 sm:px-16 lg:px-20 xl:px-20 py-20 font-sans'
+      id='contact'
+    >
       {/* Header section */}
       <div className='text-left sm:mb-12 '>
         <h2 className='text-orange-500 uppercase font-bold tracking-wide'>
