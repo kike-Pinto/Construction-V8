@@ -1,5 +1,6 @@
 import { MapPin, Phone, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function ContactSection() {
   const [selectedChat, setSelectedChat] = useState(null)
@@ -22,7 +23,13 @@ export default function ContactSection() {
       {/* Content section */}
       <div className='flex flex-col sm:flex-row w-full gap-8'>
         {/* Left side - Image */}
-        <div className='w-full sm:w-2/3'>
+        <motion.div
+          className='w-full sm:w-2/3'
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <div className='h-full bg-gray-200 overflow-hidden'>
             <img
               src='/images/contact-img.png'
@@ -30,12 +37,24 @@ export default function ContactSection() {
               className='w-full h-full object-cover'
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Right side - Contact cards */}
-        <div className='w-full sm:w-1/3 flex flex-col justify-between gap-4'>
+        <motion.div
+          className='w-full sm:w-1/3 flex flex-col justify-between gap-4'
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           {/* Location Card */}
-          <div className='bg-white p-6 shadow-sm border border-gray-100 flex flex-col items-center hover:border-2 border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-lg'>
+          <motion.div
+            className='bg-white p-6 shadow-sm border border-gray-100 flex flex-col items-center hover:border-2 border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-lg'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <div className='bg-gray-900 p-3 rounded-full mb-4'>
               <MapPin size={24} color='white' />
             </div>
@@ -45,10 +64,16 @@ export default function ContactSection() {
               <br />
               Cerro Dragon #113
             </p>
-          </div>
+          </motion.div>
 
           {/* Phone Card */}
-          <div className='bg-white p-6 shadow-sm border border-gray-100 flex flex-col items-center hover:border-2 border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-lg'>
+          <motion.div
+            className='bg-white p-6 shadow-sm border border-gray-100 flex flex-col items-center hover:border-2 border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-lg'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <div className='bg-gray-900 p-3 rounded-full mb-4'>
               <Phone size={24} color='white' />
             </div>
@@ -60,10 +85,16 @@ export default function ContactSection() {
               <br />
               +11-012345
             </p>
-          </div>
+          </motion.div>
 
           {/* Chat Card */}
-          <div className='bg-white p-6 shadow-sm border border-gray-100 flex flex-col items-center hover:border-2 border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-lg'>
+          <motion.div
+            className='bg-white p-6 shadow-sm border border-gray-100 flex flex-col items-center hover:border-2 border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-lg'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <div className='bg-gray-900 p-3 rounded-full mb-4'>
               <MessageSquare size={24} color='white' />
             </div>
@@ -111,8 +142,8 @@ export default function ContactSection() {
                 </svg>
               </button>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   )

@@ -1,109 +1,8 @@
-// import React from 'react'
-// import Image from 'next/image'
-// import Link from 'next/link'
-// import { CheckCircle } from 'lucide-react'
-
-// const About = () => {
-//   const aboutItems = [
-//     {
-//       id: 1,
-//       text: 'Professional workers',
-//     },
-//     { id: 2, text: 'Guaranteed quality' },
-//     { id: 3, text: 'Extensive experience' },
-//     { id: 4, text: 'We quote your project' },
-//   ]
-
-//   return (
-//     <section id='about' className='relative'>
-//       <div className='container mx-auto  px-10 sm:px-16 md:px-16 lg:px-20 py-16 sm:py-20 lg:py-24 lg:mt-16'>
-//         <div className='flex flex-col lg:flex-row w-full gap-8 lg:gap-12 xl:gap-16'>
-//           {/* Images Section - Comportamiento original en >1024px */}
-//           <div
-//             className='relative w-full lg:max-w-[700px] mx-auto aspect-[4/3] mt-20 sm:mt-32 lg:mt-10 lg:w-1/2 order-2 lg:order-1'
-//             style={{
-//               marginLeft: 'clamp(0px, calc((100vw - 768px) * 0.2), 0px)',
-//             }}
-//           >
-//             <div className='absolute inset-0  w-[60%] h-[60%] lg:h-[89%] top-0 sm:-top-10 md:top-0 lg:top-10'>
-//               <Image
-//                 src='/images/about-img-2.png'
-//                 alt='Fondo'
-//                 fill
-//                 className='object-cover'
-//               />
-//             </div>
-//             <div className='absolute -top-20 sm:-top-32 right-0 w-[45%] h-[70%] lg:w-[50%] lg:h-[100%] border-4 border-white'>
-//               <Image
-//                 src='/images/about-img-1.png'
-//                 alt='Detalle'
-//                 fill
-//                 className='object-cover'
-//               />
-//             </div>
-//           </div>
-
-//           {/* Content Section - Ajuste fluido solo en 768-1024px */}
-//           <div className='flex flex-col lg:w-1/2 order-1 lg:order-2'>
-//             <div
-//               className='flex flex-col md:flex-row lg:flex-col gap-8 lg:gap-12 font-sans lg:-mt-14'
-//               style={{
-//                 marginRight: 'clamp(0px, calc((100vw - 768px) * 0.15), 0px)',
-//                 paddingLeft: 'clamp(0px, calc((100vw - 768px) * 0.1), 0px)',
-//               }}
-//             >
-//               {/* Parte izquierda - Texto superior */}
-//               <div className='md:w-[65%] lg:w-full'>
-//                 <span className='text-amber-500 font-medium mb-4'>
-//                   ABOUT US
-//                 </span>
-//                 <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold mt-2 mb-6'>
-//                   We Provide The Best <br className='hidden md:block' />
-//                   Service To Build
-//                 </h2>
-//                 <p className='text-gray-600 max-w-2xl text-sm sm:text-base'>
-//                   We strive to provide the best professionals to make your
-//                   projects a construction masterpiece something unique and
-//                   unmatched.
-//                 </p>
-//               </div>
-
-//               {/* Parte derecha - AboutItems y botón */}
-//               <div className='md:w-[35%] lg:w-full md:justify-items-end lg:justify-items-start'>
-//                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3 lg:gap-4 mb-8'>
-//                   {aboutItems.map((item) => (
-//                     <div key={item.id} className='flex items-center gap-2'>
-//                       <CheckCircle
-//                         className='text-orange-500 flex-shrink-0'
-//                         size={20}
-//                       />
-//                       <span className='text-gray-800 text-xs sm:text-sm'>
-//                         {item.text}
-//                       </span>
-//                     </div>
-//                   ))}
-//                 </div>
-//                 <Link
-//                   href='/projects'
-//                   className='w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-10 transition-colors inline-block'
-//                 >
-//                   View Projects
-//                 </Link>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-// export default About
-
 'use client'
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function AboutUs() {
   const [isMobile, setIsMobile] = useState(false)
@@ -135,13 +34,28 @@ export default function AboutUs() {
   return (
     <div className='w-full bg-white mt-20' id='about'>
       {/* Layout para pantallas grandes (>=1024px) */}
-      <div
+      <motion.div
         className={`hidden lg:flex max-w-7xl container mx-auto px-10 sm:px-16 lg:px-20 xl:px-20 py-16 relative`}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.5 }}
       >
         {/* Columna izquierda para imágenes */}
-        <div className='w-1/2 relative'>
+        <motion.div
+          className='w-1/2 relative'
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           {/* Imagen de fondo */}
-          <div className='absolute left-0 -bottom-10 w-full h-4/5 lg:h-full lg:w-2/3'>
+          <motion.div
+            className='absolute left-0 -bottom-10 w-full h-4/5 lg:h-full lg:w-2/3'
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+          >
             <div className='relative w-full h-full'>
               <Image
                 src='/images/about-img-2.png'
@@ -151,10 +65,15 @@ export default function AboutUs() {
                 priority
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Imagen superpuesta */}
-          <div className='absolute right-12 -top-20 w-1/2 h-full z-10'>
+          <motion.div
+            className='absolute right-12 -top-20 w-1/2 h-full z-10'
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
             <div className='relative w-full h-full'>
               <Image
                 src='/images/about-img-1.png'
@@ -164,24 +83,46 @@ export default function AboutUs() {
                 priority
               />
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Columna derecha para texto */}
-        <div className='w-1/2 pl-8 flex flex-col justify-center font-sans'>
-          <div className='text-orange-500 font-bold mb-2'>ABOUT US</div>
-          <h2 className='text-4xl font-bold mb-6 text-gray-800'>
-            We Provide The Best Service To Build
-          </h2>
-          <p className='text-gray-600 mb-8'>
-            We strive to provide the best professionals to make your projects a
-            construction masterpiece something unique and unmatched.
-          </p>
+        <motion.div
+          className='w-1/2 pl-8 flex flex-col justify-center font-sans'
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className='text-orange-500 font-bold mb-2'>ABOUT US</div>
+            <h2 className='text-4xl font-bold mb-6 text-gray-800'>
+              We Provide The Best Service To Build
+            </h2>
+            <p className='text-gray-600 mb-8'>
+              We strive to provide the best professionals to make your projects
+              a construction masterpiece something unique and unmatched.
+            </p>
+          </motion.div>
 
           {/* Ítems con checkmarks */}
-          <div className='grid grid-cols-2 gap-y-4 mb-10'>
+          <motion.div
+            className='grid grid-cols-2 gap-y-4 mb-10'
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+          >
             {aboutItems.map((item) => (
-              <div key={item.id} className='flex items-center'>
+              <motion.div
+                key={item.id}
+                className='flex items-center'
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              >
                 <div className='text-orange-500 mr-2'>
                   <svg
                     className='w-8 h-8'
@@ -198,36 +139,74 @@ export default function AboutUs() {
                 <span className='text-gray-700 lg:text-sm xl:text-base'>
                   {item.text}
                 </span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Botón CTA */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6 }}
+          >
             <button className='bg-gradient-to-r from-orange-500 to-orange-400 hover:shadow-orange-500/30 hover:shadow-lg transition-all duration-300  text-white px-8 py-4 font-medium'>
               View Projects
             </button>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       {/* Layout para pantallas pequeñas (<1024px) */}
-      <div className={`lg:hidden px-10 sm:px-16 `}>
+      <motion.div
+        className={`lg:hidden px-10 sm:px-16 `}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5 }}
+      >
         <div className='mx-auto font-sans'>
           {/* Encabezado y texto */}
-          <div className='text-orange-500 font-bold mb-2'>ABOUT US</div>
-          <h2 className='text-3xl font-bold mb-4 text-gray-800'>
-            We Provide The Best Service To Build
-          </h2>
-          <p className='text-gray-600 mb-6'>
-            We strive to provide the best professionals to make your projects a
-            construction masterpiece something unique and unmatched.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <div className='text-orange-500 font-bold mb-2'>ABOUT US</div>
+            <motion.h2
+              className='text-3xl font-bold mb-4 text-gray-800'
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              We Provide The Best Service To Build
+            </motion.h2>
+            <motion.p
+              className='text-gray-600 mb-6'
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              We strive to provide the best professionals to make your projects
+              a construction masterpiece something unique and unmatched.
+            </motion.p>
+          </motion.div>
 
           {/* Ítems con checkmarks en 2 columnas */}
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 mb-8'>
-            {aboutItems.map((item) => (
-              <div key={item.id} className='flex items-center'>
+          <motion.div
+            className='grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 mb-8'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ staggerChildren: 0.1 }}
+          >
+            {aboutItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                className='flex items-center'
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+              >
                 <div className='text-orange-500 mr-2'>
                   <svg
                     className='w-8 h-8'
@@ -242,22 +221,36 @@ export default function AboutUs() {
                   </svg>
                 </div>
                 <span className='text-gray-700 text-lg'>{item.text}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Botón CTA */}
-          <div className='mb-10'>
+          <motion.div
+            className='mb-10'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+          >
             <button className='bg-gradient-to-r from-orange-500 to-orange-400 hover:shadow-orange-500/30 hover:shadow-lg transition-all duration-300 text-white w-full py-3 text-lg font-medium '>
               View Projects
             </button>
-          </div>
+          </motion.div>
 
           {/* Imágenes montadas */}
-          <div className='relative h-[30rem] mt-8 mb-10'>
+          <motion.div
+            className='relative h-[30rem] mt-8 mb-10'
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             {/* Imagen izquierda */}
-            {/* <div className='absolute left-0 -bottom-10 w-full h-4/5 lg:h-full lg:w-2/3'> */}
-            <div className='absolute left-0 bottom-0 w-1/2 h-full pt-20'>
+            <motion.div
+              className='absolute left-0 bottom-0 w-1/2 h-full pt-20'
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.7 }}
+            >
               <div className='relative w-full h-full'>
                 <Image
                   src='/images/about-img-2.png'
@@ -266,10 +259,15 @@ export default function AboutUs() {
                   className='object-cover'
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Imagen derecha */}
-            <div className='absolute right-0 top-0 w-2/3 h-5/6'>
+            <motion.div
+              className='absolute right-0 top-0 w-2/3 h-5/6'
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+            >
               <div className='relative w-full h-full'>
                 <Image
                   src='/images/about-img-1.png'
@@ -278,10 +276,10 @@ export default function AboutUs() {
                   className='object-cover'
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

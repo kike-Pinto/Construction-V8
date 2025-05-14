@@ -8,6 +8,7 @@ import {
   Package2,
   Droplets,
 } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const ServicesComponent = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -90,7 +91,12 @@ const ServicesComponent = () => {
 
       <div className='relative container mx-auto px-10 sm:px-16 lg:px-20 xl:px-20'>
         {/* Header section with responsive layout */}
-        <div className='w-full flex flex-col lg:flex-row items-center justify-between gap-8 mb-12 font-sans'>
+        <motion.div
+          className='w-full flex flex-col lg:flex-row items-center justify-between gap-8 mb-12 font-sans'
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           {/* Left section - Titles */}
           <div className='w-full text-left'>
             <span className='text-orange-500 font-bold mb-2 block'>
@@ -126,13 +132,16 @@ const ServicesComponent = () => {
               Contact
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Services Cards */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
           {displayedSlides.map((service, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: index * 0.5 }}
               className='bg-white py-12 px-8 shadow-xl flex flex-col items-center sm:items-start mx-auto sm:mx-0 max-w-lg sm:max-w-none border-2 border-transparent transition-all duration-300 hover:border-orange-500 hover:shadow-lg'
             >
               <div className='bg-gray-900 rounded-full p-4 mb-8'>
@@ -146,7 +155,7 @@ const ServicesComponent = () => {
               <p className='text-gray-700 text-center sm:text-left font-sans text-sm md:text-base'>
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
