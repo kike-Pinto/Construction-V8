@@ -1,3 +1,5 @@
+'use client'
+
 import { MapPin, Phone, MessageSquare } from 'lucide-react'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
